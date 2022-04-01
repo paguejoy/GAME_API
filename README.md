@@ -34,6 +34,8 @@ const PORT = process.env.PORT || 3000
 
 ```
 
+//write in your cli
+
 touch .gitignore .env
 
 ```
