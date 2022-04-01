@@ -150,6 +150,7 @@ module.exports = router;
 ```
 
 ```
+//Index.js
 
 const userRoutes = require('./routes/userRoutes')
 const heroRoutes = require('./routes/heroRoutes')
@@ -188,7 +189,7 @@ router.get('/', (req, res) => {
 
 ## Step 14: Create auth.js file from the root directory. Import jsonwebtoken package and create functions for each jsonwebtoken's method. Export each function using module.exports
 [JSONWEBTOKEN](https://www.npmjs.com/package/jsonwebtoken "JSONWEBTOKEN Methods")
-Read documentation on each method and corresponsing parameters.
+Read documentation on each method and their corresponding parameters.
 ```
 
 const { sign, verify, decode } = require('jsonwebtoken')
