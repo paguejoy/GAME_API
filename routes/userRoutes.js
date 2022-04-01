@@ -44,9 +44,9 @@ router.post('/register', async (req, res) => {
 
 
 //LOGIN THE USER
-router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
 	try{ 
-		login(req.body).then(result => res.send(result))
+		await login(req.body).then(result => res.send(result))
 
 	}catch(err){
 		res.status(500).json(err)
@@ -58,7 +58,7 @@ router.post('/login', (req, res) => {
 router.get('/profile', verifyUser, async (req, res) => {
 	const userId = decode(req.headers.authorization).id
 	try{
-		profile(userId).then(result => res.send(result))
+		await profile(userId).then(result => res.send(result))
 
 	}catch(err){
 		res.status(500).json(err)
@@ -104,7 +104,7 @@ router.patch('/isUser', verifyAdmin, async (req, res) => {
 // REACTIVATE USER ACCOUNT
 router.patch('/:userId/deactivate', verifyUser, async (req, res) => {
 	try{
-		deactivateUser(req.params.userId).then(result => res.send(result))
+		await deactivateUser(req.params.userId).then(result => res.send(result))
 
 	}catch(err){
 		res.status(500).json(err)
@@ -114,7 +114,7 @@ router.patch('/:userId/deactivate', verifyUser, async (req, res) => {
 // REACTIVATE USER ACCOUNT
 router.patch('/:userId/reactivate', verifyUser, async (req, res) => {
 	try{
-		reactivateUser(req.params.userId).then(result => res.send(result))
+		await reactivateUser(req.params.userId).then(result => res.send(result))
 
 	}catch(err){
 		res.status(500).json(err)
@@ -125,7 +125,7 @@ router.patch('/:userId/reactivate', verifyUser, async (req, res) => {
 // DELETE USER ACCOUNT
 router.delete('/:userId/delete', verify, async (req, res) => {
 	try{
-		deleteUser(req.params.userId).then(result => res.send(result))
+		await deleteUser(req.params.userId).then(result => res.send(result))
 
 	}catch(err){
 		res.status(500).json(err)

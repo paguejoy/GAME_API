@@ -57,8 +57,8 @@ module.exports.AllHeroes = async (data) => {
                     $in: [queryCategory]
                	}
             }).sort({createdAt: -1}).then(heroes => heroes) 
+
 	} else {
-		console.log('else block')
 		return await Hero.find().sort({createdAt: -1}).then(heroes => heroes) 
 	}
 }
@@ -90,6 +90,5 @@ module.exports.unArchive = async (heroId) => {
 module.exports.deleteHero = async (heroId) => {
 	return await Hero.findByIdAndDelete(heroId).then(hero => hero ? true : false)
 }
-
 
 
