@@ -21,7 +21,7 @@ module.exports.register = async (params) => {
 					password: CryptoJS.AES.encrypt(password, process.env.SECRET_PASS).toString()
 			})
 
-			return await newUser.save().then(user => user ? true : false)
+			return newUser.save().then(user => user ? true : false)
 		}
 	})
 }

@@ -19,7 +19,7 @@ const {verifyAdmin, verify} = require('./../auth')
 // CREATE A HERO
 router.post('/create', verifyAdmin, async (req, res) => {
 	try{
-		create(req.body).then(result => res.send(result))
+		await create(req.body).then(result => res.send(result))
 
 	}catch(err){
 		res.status(500).json(err)
